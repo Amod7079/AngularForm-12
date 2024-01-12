@@ -1,0 +1,25 @@
+.container
+{
+    width:80%;
+    margin:auto;
+    background-color: bisque;
+    padding: 20px;
+    text-align: center;
+}
+table
+{
+    margin: auto;
+}
+table tr td{
+    padding: 5px;
+    font-size: 25px;
+}
+button{
+    margin: 1.5px;
+    font-size: 25px;
+}
+
+input.ng-valid{
+    border: 1px solid rgb(14, 241, 64);
+    
+}

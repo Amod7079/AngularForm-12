@@ -1,0 +1,99 @@
+<div class="container">
+    <h2>User Registration Form </h2>
+    <!-- <p *ngIf="cname.length>2">form is valid </p> -->
+    <form #userForm="ngForm" (ngSubmit)="formSubmitted(userForm)">
+        <p style="color: rgb(71, 165, 42);" *ngIf="userForm.valid">Form Is Valid ✔</p>
+        <table>
+            <tr>
+                <td>Name</td>
+
+                <td>
+
+                    <input type="text" required placeholder="Enter Name " name="name" ngModel 
+                        [(ngModel)]="user.name" />
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>Email</td>
+
+                <td>
+
+                    <input type="text" required placeholder="Enter Email " name="Email" ngModel
+                        [(ngModel)]="user.email" 
+                        
+                       
+                        />
+                </td>
+
+            </tr>
+            <tr>
+                <td>About</td>
+
+                <td>
+
+                    <textarea cols="22" rows="5" name="About" ngModel [(ngModel)]="user.about"></textarea>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Gender</td>
+
+                <td>
+
+                    <input type="radio" ngModel name="gender" value="Male" [(ngModel)]="user.gender" />Male
+                    <input type="radio" ngModel name="gender" value="Female" [(ngModel)]="user.gender" />Female
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+
+                <td>City</td>
+                <td>
+                    <select name="city" [(ngModel)]="user.city">
+
+                        <option value="patna">Patna</option>
+                        <option value="siwan">Siwan</option>
+                        <option value="gopalganj">Gopalganj</option>
+                        <option value="banshibatarahan">Banshibatarahan</option>
+                        <option value="notaki">Notaki</option>
+                        <option value="Nashik">Nashik</option>
+
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="2">
+
+                    <button type="submit">Submit</button>
+                    <button type="reset">clear</button>
+
+                </td>
+
+
+            </tr>
+
+            
+
+            
+        </table>
+
+
+
+
+    </form>
+
+
+
+
+
+
+</div>

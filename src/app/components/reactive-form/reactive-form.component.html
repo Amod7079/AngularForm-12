@@ -1,0 +1,138 @@
+<h1>Reactive Form example</h1>
+
+<div class="Form-container">
+    <h1 style="color: brown ;">User Registration Form </h1>
+    <form [formGroup]="userForm" (ngSubmit)="formSubmitted()">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" placeholder="Enter Your Name" formControlName="name" />
+                    <br>
+                    <small *ngIf="userForm.controls.name.hasError('minlength')" style="color: rgb(41, 33, 149)">*Minimum length required</small>
+                    <small *ngIf="userForm.controls.name.hasError('maxlength')" style="color: brown;">*Maximum length exceeded</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" placeholder="Enter Your Email" formControlName="email" /></td>
+            </tr>
+
+            <tr>
+                <td>About:</td> 
+                <td><input type="text" placeholder="अर्ज़ किजिए अपने बारे में" formControlName="about" /></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" value="male" formControlName="gender" name="gender" />Male
+                    <input type="radio" value="Female" formControlName="gender" name="gender" />Female
+                </td>
+            </tr>
+            <tr>
+                <td>कहां से ?:</td>
+                <td>
+                    <select name="city" formControlName="city">
+                        <option value="patna">Patna</option>
+                        <option value="gopalganj">Gopalganj</option>
+                        <option value="mirganj">Mirganj</option>
+                        <option value="rajapur">Rajapur</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center">
+
+
+                    <button [disabled]="!userForm.valid" type="submit">Submit</button> &nbsp; <button>Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<hr />
+=================================================================================================================================================================================================================================================================================
+<!-- <div style="background-color: rgb(227, 146, 146);">
+    <h2 style="color: rgb(21, 19, 19); background-color: rgb(227, 146, 146);">Login Form</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="SubmitHere()">
+        <tr>
+
+            <td>E-mail :</td>
+
+            <td>
+                <input type="text" name="email" formControlName="Email" *ngIf="loginForm.setValidators" >
+
+            </td>
+        </tr>
+        <tr>
+
+            <td>Password :</td>
+            <td>
+                <input type="text" name="email" formControlName="Password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+
+
+                <button type="submit">Submit</button> &nbsp; <button>Reset</button>
+
+
+
+            </td>
+        </tr>
+        {{loginForm.value | json}}
+    </form>
+</div> -->
+
+<div style="background-color: rgb(221, 228, 20);">
+    <h2 style="color: rgb(239, 239, 36); background-color: rgb(227, 146, 146);">Login Form</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="SubmitHere()">
+        <div>
+            <label for="email">E-mail   :</label>
+            <input type="text" id="email" name="email" formControlName="Email">
+            <div *ngIf="loginForm.controls.Email.hasError('email')">
+                <!-- Fill proper email details (minimum length: 3) -->
+
+                <small style="color: red;">Email is not valid </small>
+            </div>
+        </div>
+<br>
+        <!-- <div>
+            <label for="password">Password :</label>
+            <input type="text" id="password" name="password" formControlName="Password">
+            <div *ngIf="loginForm.controls.Password.hasError('')">
+            
+
+
+            </div>
+        </div> -->
+        <!-- <div>
+            <label for="password">Password :</label>
+            <input type="password" id="password" name="password" formControlName="Password">
+            <div *ngIf="loginForm.controls.Password required && loginForm.get('Password').touched">
+                Password is required
+            </div>
+            <div *ngIf="loginForm.get('Password').hasError('pattern') && loginForm.get('Password').touched">
+                Password must contain at least one lowercase letter, one uppercase letter, one digit, and have a minimum length of 8 characters
+            </div>
+        </div> -->
+        <div>
+            <label for="password">Password :</label>
+            <input type="password" id="password" name="password" formControlName="Password">
+            <div *ngIf="loginForm.controls['Password'].hasError('customError') && loginForm.controls['Password'].touched">
+                Custom error message for the password field.
+            </div>
+        </div>
+        
+        <div style="text-align: center">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+
+        {{ loginForm.value | json }}
+    </form>
+</div>

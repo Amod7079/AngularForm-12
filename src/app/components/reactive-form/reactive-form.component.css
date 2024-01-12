@@ -1,0 +1,28 @@
+.Form-container
+{
+width:50%
+;
+margin: auto;
+background-color: aqua;
+padding: 10px;
+text-align: center;
+}
+table{
+    margin: auto;
+}
+table tr td , input , button, select
+{
+    font-size: 23px;
+}
+table tr td
+{
+    padding: 5px;
+}
+.reset
+{
+    margin-right: -300px;;
+}
+button
+{
+    margin-right: 10px;
+}
